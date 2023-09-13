@@ -93,13 +93,12 @@ function startProgram(){
         case "Add role":
             addRole();
             break;
-            
-          case "Add Employee":
-            addEmployee();
+
+        case "Add employee":
+            addEmployees();
             break;
   
-  
-          case "Update employee role":
+        case "Update employee role":
             updateEmployeeRole();
             break;
   
@@ -175,7 +174,7 @@ function startProgram(){
             name: "departmentId"
           }
         ]).then(function(answer){
-            db.query(`INSERT INTO department (name) VALUES (?)`,[answer.newRole, answer.salary, answer.departmentId], (err, result) => {
+            db.query(`INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`,[answer.newRole, answer.salary, answer.departmentId], (err, result) => {
                 if (err) {
                   console.log(err);}
                 console.log(answer.newRole, answer.salary, answer.departmentId+" successfully added!")
@@ -184,56 +183,54 @@ function startProgram(){
           });
     };
 
-
-function addEmployee() {
-  inquirer
-    .prompt([
-      {
-        type: "input",
-        message: "What is the first name of the employee?",
-        name: "firstName"
-      },
-      {
-        type: "input",
-        message: "What is the last name of the employee?",
-        name: "lastName"
-      },
-      {
-        type: "input",
-        message: "What is the employee's role id number?",
-        name: "roleId"
-      },
-      {
-        type: "input",
-        message: "What is the manager id number?",
-        name: "managerId"
-      }
-    ])
-    .then(function(answer) {
-        db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?))`,[answer.firstName, answer.lastName, answer.roleId, answer.managerId], (err, result) => {
-            if (err) {
-              console.log(err);}
-            console.log(answer.firstName, answer.lastName+" successfully added!")
-            startProgram();
+    function addEmployees() {
+      inquirer.prompt([{
+          type: "input",
+          message: "What is the first name of the employee?",
+          name: "firstName"},
+          {
+              type: "input",
+              message: "What is the last name of the employee?",
+              name: "lastName"
+            },
+            {
+              type: "input",
+              message: "What is the employee's role id number?",
+              name: "roleId"
+            },
+            {
+              type: "input",
+              message: "What is the manager id number?",
+              name: "managerId"
+            }
+          ])
+          .then(function(answer) {
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`,[answer.firstName, answer.lastName, answer.roleId, answer.managerId], (err, result) => {
+                if (err) {
+                  console.log(err);}
+                console.log(answer.firstName, answer.lastName+" successfully added!")
+                startProgram();
+              });
           });
-      });
-};
+      };
+
+
       
 
-//Since we're using inquirer, we can pass the query into the method as an array
 
 function updateEmployeeRole() {
+ 
   inquirer
     .prompt([
       {
         type: "input",
-        message: "Which employee's role would you like to update?",
+        message: "Which employee's role would you like to update? (type first name)",
         name: "updateEmployee"
       },
 
       {
         type: "input",
-        message: "What role do you want to update to?",
+        message: "What role do you want to update to? (type role ID)",
         name: "updateRole"
       }
     ])
@@ -249,42 +246,8 @@ function updateEmployeeRole() {
 };
 
 
-function viewDepartment() {
-  // select from the db
-  let query = "SELECT * FROM department";
-  db.query(query, function(err, res) {
-    if (err) throw err;
-    console.table(res);
-    startProgram();
-  });
-  // show the result to the user (console.table)
-}
-
-
-function viewRoles() {
-  // select from the db
-  let query = "SELECT * FROM role";
-  db.query(query, function(err, res) {
-    if (err) throw err;
-    console.table(res);
-    startProgram();
-  });
-  // show the result to the user (console.table)
-}
-
-function viewEmployees() {
-  // select from the db
-  let query = "SELECT * FROM employee";
-  db.query(query, function(err, res) {
-    if (err) throw err;
-    console.table(res);
-    startProgram();
-  });
-  // show the result to the user (console.table)
-}
-
-function quit() {
+function end() {
   db.end();
-  process.quit();
+  process.end();
 }
     
