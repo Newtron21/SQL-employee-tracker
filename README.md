@@ -56,7 +56,7 @@ Use for class for homework assignment
 
 [What page was supposed to look like](assets/mysql_employee-tracker.png)
 
-[video walk-through]()
+[video walk-through](https://drive.google.com/file/d/1zTHFYMId30oPpMkL65LMLosrm-Yto2cI/view?usp=sharing)
 
 
 ## Credits
