@@ -1,1 +1,0 @@
-# SQL-employee-tracker
