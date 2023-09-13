@@ -12,15 +12,15 @@
 -I learned the ins and outs of Sequel and how to use it with express
 ## Installation
 
-- Install inquirer, please use npm i inquirer@8.2.4.
-- npm I
-- fill in password on server.js file
-- run "mysql -u root -p" 
-- SOURCE db/schema.sql;
-- SOURCE db/seeds.sql;
-- SOURCE db/query.sql;
-- quit sql
-- run "node server.js"
+-  Install inquirer, please use npm i inquirer@8.2.4.
+-  npm i
+-  fill in password on server.js file
+-  run "mysql -u root -p" 
+-  SOURCE db/schema.sql;
+-  SOURCE db/seeds.sql;
+-  SOURCE db/query.sql;
+-  quit sql
+-  run "node server.js"
 - start program
 
 ## User Story
