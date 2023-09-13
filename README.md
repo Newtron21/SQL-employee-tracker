@@ -56,12 +56,13 @@ Use for class for homework assignment
 
 [What page was supposed to look like](assets/mysql_employee-tracker.png)
 
+[video walk-through]()
+
 
 ## Credits
 
 List your collaborators, if any, with links to their GitHub profiles.
 
-\*I copied license info over from [https://choosealicense.com/](https://choosealicense.com/).
 
 ## License
 
