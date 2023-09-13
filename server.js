@@ -17,7 +17,7 @@ const db = mysql.createConnection(
     // MySQL username,
     user: 'root',
     // TODO: Add MySQL password
-    password: '143Github!',
+    password: 'INSERT PASSWORD',
     database: 'employee_db'
   },
   console.log(`Connected to the employee_db database.`)
